@@ -138,6 +138,37 @@ The project demonstrates an end-to-end cryptocurrency market analytics workflow,
 
 By combining **Python, Pandas, the CoinGecko API, CSV exports, and Looker Studio**, the notebook transforms raw cryptocurrency market data into structured, actionable insights through a repeatable data pipeline.
 
+## 📋 Notebook Summary: E-Commerce Reconciliation Pipeline
+
+This notebook establishes an end-to-end data validation and reconciliation pipeline that cross-references Orders, Payments, and Deliveries datasets to flag discrepancies, evaluate key business metrics, and export actionable insights.
+
+### ⚙️ Pipeline Overview
+1. **Data Loading & Cleaning**: Imports CSV files, standardizes column headers to lowercase, strips whitespaces, and normalizes `order_id` formats while parsing timestamp fields.
+2. **Set-Based Missing Record Validation**: Checks for missing links across tables:
+   - **Orders with no payment:** 12 records
+   - **Payments with no order:** 7 records
+   - **Orders with no delivery:** 27 records
+3. **Full Master Merge**: Combines all tables using outer joins to build a complete `full_data` master dataset.
+4. **Rule-Based Issue Classification**: Categorizes order lifecycles into issues (such as amount mismatches, missing payments, or unfulfilled orders).
+5. **Report Exports**: Automatically saves 8 localized performance, discrepancy, and breakdown CSV reports to `/content/reports/`.
+
+### 📊 Key Business Metrics (KPI Summary)
+- **Total Orders processed:** 240
+- **Total Orders with Issues / Discrepancies:** 49 records (Total rows minus "Matched / No issue")
+- **Payment Success Rate:** ~94% (based on standard output transactions)
+
+### ⚠️ Top Discrepancy Breakdown
+| Issue Type | Impact Count | Resolution Strategy |
+| :--- | :---: | :--- |
+| **Matched / No issue** | 198 | Proceed with routine flow. |
+| **Order present, payment missing** | 12 | Verify payment gateway logs & retry sync. |
+| **Payment success but delivery missing** | 10 | Inspect OMS integration or logistical bottleneck. |
+| **Cancelled order, refund pending** | 8 | Escalate pending refund backlog to finance. |
+| **Payment present, order missing** | 7 | Debug pipeline synchronization or duplicate logs. |
+| **Amount mismatch** | 7 | Audit promotions, discounts, or processing fees. |
+| **Delivered but payment failed/pending** | 3 | Urgent ops/finance cross-examination. |
+| **Order confirmed but payment failed** | 2 | Verify payment gateway and prompt user for retry. |
+
 
 ---
 
