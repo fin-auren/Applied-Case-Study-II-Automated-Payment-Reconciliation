@@ -23,6 +23,50 @@ This notebook is a structured python-based assignment focusing on **Automated Pa
 | **Problem 9** | Day-wise Discrepancy Analysis | ⏳ *Pending Implementation* | Datetime operations (`.dt.date`), Groupby aggregation |
 | **Problem 10**| Reconciliation Health Score | ⏳ *Pending Implementation* | Logical operations (`&`), percentage metrics |
 
+Assignment: Fintech APIs and Data Ingestion
+Overview
+
+This notebook is a comprehensive, hands-on assignment focused on working with APIs, parsing JSON payloads, cleaning datasets, and constructing standard ETL (Extract, Transform, Load) pipelines in Python.
+
+Notebook Summary
+Setup
+Imports standard data-engineering libraries: requests, json, and pandas.
+Problems
+Problem 1: Basic API Call
+Implements API GET requests to query user profiles.
+Problem 2: Nested JSON Navigation
+Extracts attributes from deeply nested JSON schemas.
+Problem 3: Query Parameter Queries
+Applies server-side filters to restrict API results.
+Problem 4: JSON-to-DataFrame Flattening
+Normalizes nested records using pandas.json_normalize().
+Problem 5: Data Standardization
+Renames columns to maintain consistent naming conventions.
+Problem 6: Iterating Collections
+Extracts specific elements from structured lists.
+Problem 7: Temporal Formatting
+Converts Unix epoch timestamps into structured datetime64 data types.
+Problem 8: Resilient Exceptions
+Implements structured try/except blocks to handle errors during external API requests.
+Problem 9: Grouping and Aggregations
+Uses groupby().size() to calculate grouped summaries.
+Problem 10: Merging Pipelines
+Integrates data from multiple sources using relational pandas.merge() operations.
+Bonus Task
+User TODO Completion Rates
+Includes a placeholder for calculating user TODO completion rates.
+Learning Objectives
+
+By completing this assignment, students will learn how to:
+
+Make API requests and retrieve data from external sources.
+Navigate and extract information from nested JSON structures.
+Filter, flatten, clean, and standardize datasets.
+Convert timestamps into appropriate datetime formats.
+Handle API errors using exception handling.
+Perform grouping, aggregation, and data merging operations.
+Build structured ETL pipelines using Python and pandas.
+
 ---
 
 #### 🛠️ Key Takeaways
